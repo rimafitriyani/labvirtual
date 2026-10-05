@@ -199,6 +199,339 @@ footer{font-size:11px}
   .aboutText h3{font-size:20px}.aboutText p{font-size:12px}
 }
 
+
+/* =========================================================
+   REVISI 014 — RESPONSIVE MENYELURUH
+   Desktop, tablet, mobile, dan layar kecil
+   ========================================================= */
+html,body{max-width:100%;overflow-x:hidden}
+img,svg{max-width:100%}
+button,input,select,textarea{max-width:100%}
+.navrow,.hero,.pageHead,.searchPanel,.cards,.categoryGrid,.aboutGrid,
+.adminAccess,.adminPanel,.adminPanelHead,.formGrid,.footerRow{min-width:0}
+.hero>*,.aboutGrid>*,.cards>*,.categoryGrid>*{min-width:0}
+
+/* Foto profil: selalu proporsional */
+.avatar{
+  width:clamp(132px,18vw,168px);
+  height:clamp(164px,22vw,205px);
+}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
+
+/* Tablet landscape / laptop kecil */
+@media(max-width:1024px){
+  .shell{width:min(100% - 28px,1180px)}
+  .navrow{gap:14px}
+  .navlinks{gap:4px}
+  .navbtn{padding:10px 11px}
+
+  .hero{
+    grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);
+    gap:30px;
+    padding:46px 0;
+  }
+  .hero h1{font-size:clamp(44px,6vw,64px)}
+  .orbit{width:min(390px,38vw)}
+
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .categoryGrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .aboutGrid{grid-template-columns:minmax(240px,.72fr) minmax(0,1.28fr)}
+
+  .searchPanel{grid-template-columns:minmax(0,1fr) 180px 145px}
+}
+
+/* Tablet portrait */
+@media(max-width:820px){
+  .navrow{
+    height:auto;
+    padding:12px 0;
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .brand{width:100%}
+  .navlinks{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:6px;
+    overflow:visible;
+  }
+  .navbtn{
+    width:100%;
+    white-space:normal;
+    text-align:center;
+    padding:10px 6px;
+    line-height:1.25;
+  }
+
+  .hero{
+    min-height:auto;
+    grid-template-columns:1fr;
+    gap:26px;
+    padding:42px 0 34px;
+  }
+  .heroCopy{text-align:center}
+  .hero p{margin-left:auto;margin-right:auto}
+  .heroBtns{justify-content:center}
+  .orbitWrap{padding:0 0 12px}
+  .orbit{width:min(420px,74vw)}
+
+  .pageHead{padding:38px 0 20px}
+  .pageHead h2{font-size:34px}
+
+  .searchPanel{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+  .searchPanel input{grid-column:1/-1}
+
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .categoryGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .aboutGrid{grid-template-columns:1fr}
+  .profile{display:grid;justify-items:center}
+
+  .adminAccess,.adminPanelHead{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .adminActions{width:100%}
+  .adminPanelHead .adminActions .adminBtn{flex:1}
+
+  .footerRow{align-items:flex-start}
+}
+
+/* Mobile */
+@media(max-width:600px){
+  body{font-size:15px}
+  .shell{width:calc(100% - 22px)}
+
+  nav{position:sticky;top:0}
+  .navrow{padding:10px 0 9px}
+  .brandmark{width:40px;height:40px;border-radius:12px;font-size:19px}
+  .brand b{font-size:13px}
+  .brand small{font-size:8px}
+  .navlinks{gap:4px}
+  .navbtn{
+    font-size:9.5px;
+    padding:9px 3px;
+    border-radius:9px;
+  }
+
+  .hero{
+    padding:30px 0 26px;
+    gap:18px;
+  }
+  .eyebrow{font-size:10px;padding:6px 9px}
+  .hero h1{
+    font-size:clamp(36px,11vw,48px);
+    line-height:1.06;
+    letter-spacing:-1.7px;
+    margin:15px 0 14px;
+  }
+  .hero p{font-size:13px;line-height:1.72}
+  .heroBtns{
+    display:grid;
+    grid-template-columns:1fr;
+    width:100%;
+    gap:8px;
+    margin-top:20px;
+  }
+  .heroBtns .btn{width:100%}
+  .orbit{width:min(330px,88vw)}
+  .formula.f1{font-size:20px}
+  .formula.f2,.formula.f3,.formula.f4{font-size:12px}
+  .atom{width:76px;height:76px;font-size:47px;border-radius:21px}
+
+  .pageHead{padding:28px 0 15px}
+  .pageHead h2{font-size:28px;line-height:1.15}
+  .pageHead p{font-size:12px;line-height:1.7}
+
+  .searchPanel{
+    grid-template-columns:1fr;
+    gap:8px;
+    padding:10px;
+    border-radius:16px;
+  }
+  .searchPanel input{grid-column:auto}
+  .searchPanel input,.searchPanel select{
+    width:100%;
+    min-height:44px;
+    font-size:12px;
+  }
+
+  .cards,.categoryGrid{grid-template-columns:1fr;gap:12px}
+  .cards{padding-bottom:34px}
+  .card{border-radius:18px}
+  .thumb{height:136px}
+  .cardBody{padding:15px}
+  .card h3{font-size:16px}
+  .card p{font-size:11px;min-height:0}
+  .tags{gap:5px}
+  .tag,.statusPill{font-size:9px}
+  .cardFoot{margin-top:11px}
+  .open{font-size:11px}
+  .cardAdmin{display:none;grid-template-columns:1fr 1fr}
+  .adminMode .cardAdmin{display:grid}
+  .cardAdmin .adminBtn{width:100%}
+
+  .categoryGrid{padding-bottom:36px}
+  .cat{padding:17px;border-radius:17px}
+  .cat .ico{width:42px;height:42px;margin-bottom:11px}
+  .cat b{font-size:14px}
+  .cat small{font-size:10px}
+
+  .aboutGrid{gap:13px;padding-bottom:16px}
+  .profile,.aboutText,.adminAccess,.adminPanel{border-radius:18px}
+  .profile{padding:20px}
+  .profile h3{font-size:17px}
+  .profile p{font-size:11px}
+  .aboutText{padding:19px}
+  .aboutText h3{font-size:20px}
+  .aboutText p{font-size:12px}
+  .miniFeatures{grid-template-columns:1fr;gap:7px}
+  .mini{padding:12px}
+
+  .adminAccess{
+    padding:17px;
+    margin-bottom:34px;
+    align-items:stretch;
+  }
+  .adminAccess .btn{width:100%;min-height:44px}
+
+  .adminPanel{
+    padding:14px;
+    margin-bottom:34px;
+    overflow:hidden;
+  }
+  .adminPanelHead{gap:12px}
+  .adminPanelHead h3{font-size:16px}
+  .adminPanelHead small{font-size:10px}
+  .adminActions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:7px;
+  }
+  .adminActions .adminBtn{width:100%;min-height:40px}
+
+  /* Tabel admin menjadi kartu agar tidak ada scroll horizontal */
+  .adminTableWrap{overflow:visible}
+  .adminTable,.adminTable tbody,.adminTable tr,.adminTable td{
+    display:block;
+    width:100%;
+  }
+  .adminTable thead{display:none}
+  .adminTable tbody{
+    display:grid;
+    gap:10px;
+  }
+  .adminTable tr{
+    background:#fbfdff;
+    border:1px solid var(--line);
+    border-radius:15px;
+    padding:10px 12px;
+  }
+  .adminTable td{
+    border:0;
+    padding:7px 0;
+    display:grid;
+    grid-template-columns:92px minmax(0,1fr);
+    gap:10px;
+    align-items:start;
+    font-size:11px;
+    word-break:break-word;
+  }
+  .adminTable td::before{
+    content:attr(data-label);
+    font-weight:800;
+    color:var(--muted);
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+  }
+  .adminTable td[data-label="Aksi"] .adminActions{
+    grid-template-columns:1fr 1fr;
+    width:100%;
+  }
+
+  /* Modal/login/form admin */
+  .modal{
+    align-items:flex-end;
+    padding:0;
+  }
+  .box,.box.small{
+    width:100%;
+    max-width:none;
+    max-height:92dvh;
+    border-radius:22px 22px 0 0;
+    padding:18px 15px calc(18px + env(safe-area-inset-bottom));
+  }
+  .box h3{font-size:19px}
+  .box>p{font-size:10.5px}
+  .formGrid{grid-template-columns:1fr;gap:9px}
+  .field.full{grid-column:auto}
+  .field input,.field select,.field textarea{
+    width:100%;
+    min-height:44px;
+    font-size:13px;
+  }
+  .field textarea{min-height:92px}
+  .modalFoot{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    position:sticky;
+    bottom:-18px;
+    background:#fff;
+    padding:10px 0 2px;
+  }
+  .modalFoot .adminBtn{width:100%;min-height:42px}
+
+  footer{padding:18px 0}
+  .footerRow{
+    flex-direction:column;
+    gap:6px;
+    font-size:10px;
+  }
+}
+
+/* Ponsel kecil */
+@media(max-width:390px){
+  .shell{width:calc(100% - 16px)}
+  .brandmark{width:36px;height:36px}
+  .brand b{font-size:12px}
+  .navbtn{font-size:8.7px;padding:8px 2px}
+
+  .hero h1{font-size:34px}
+  .hero p{font-size:12px}
+  .orbit{width:min(292px,91vw)}
+
+  .pageHead h2{font-size:25px}
+  .searchPanel{padding:8px}
+
+  .profile,.aboutText{padding:16px}
+  .avatar{width:126px;height:154px}
+  .adminPanel{padding:11px}
+
+  .adminTable td{
+    grid-template-columns:76px minmax(0,1fr);
+    gap:7px;
+  }
+  .adminActions{grid-template-columns:1fr}
+  .adminTable td[data-label="Aksi"] .adminActions{grid-template-columns:1fr}
+  .modalFoot{grid-template-columns:1fr}
+}
+
+/* Landscape mobile: tetap usable */
+@media(max-height:520px) and (orientation:landscape){
+  .modal{align-items:center;padding:8px}
+  .box,.box.small{
+    width:min(720px,100%);
+    max-height:94vh;
+    border-radius:18px;
+  }
+  .hero{padding:24px 0}
+}
+
 </style>
 </head>
 <body>
@@ -206,9 +539,9 @@ footer{font-size:11px}
   <div class="brand"><div class="brandmark">∑</div><div><b>Laboratorium Virtual Matematika</b><small>Belajar • Bereksperimen • Menemukan</small></div></div>
   <div class="navlinks">
     <button class="navbtn active" data-page="home">Beranda</button>
-    <button class="navbtn" data-page="labs">Koleksi Laboratorium</button>
+    <button class="navbtn" data-page="labs">Koleksi</button>
     <button class="navbtn" data-page="categoriesPage">Kategori</button>
-    <button class="navbtn" data-page="about">Tentang</button>
+    <button class="navbtn" data-page="about">Tentang Portal</button>
   </div>
 </div></nav>
 
@@ -219,27 +552,27 @@ footer{font-size:11px}
 <div class="shell hero">
   <div class="heroCopy">
     <span class="eyebrow">✦ Ruang Eksperimen Matematika Interaktif</span>
-    <h1>Matematika jadi lebih <span>seru & nyata.</span></h1>
+    <h1>Matematika jadi lebih <span>seru & nyata</span></h1>
     <p>Jelajahi konsep matematika melalui simulasi dan eksperimen virtual yang visual, interaktif, dan menyenangkan. Belajar bukan hanya melihat rumus—tetapi mencoba, mengamati, dan menemukan.</p>
     <div class="heroBtns"><button class="btn btnPrimary" onclick="goPage('labs')">Jelajahi Laboratorium →</button><button class="btn btnSoft" onclick="goPage('about')">Tentang Portal</button></div>
     </div><div class="orbitWrap"><div class="orbit"><span class="formula f1">π</span><span class="formula f2">y = ax²</span><span class="formula f3">a² + b² = c²</span><span class="formula f4">∑xᵢ</span><div class="atom">⚛</div></div></div>
 </div></section>
 
 <section class="page" id="labs"><div class="shell">
-  <div class="pageHead"><span class="eyebrow">Koleksi Interaktif</span><h2>Koleksi Laboratoriumoratorium Virtual</h2><p>Cari materi, pilih kategori atau kelas, kemudian buka laboratorium virtual yang ingin dieksplorasi.</p></div>
+  <div class="pageHead"><span class="eyebrow">Koleksi Interaktif</span><h2>Koleksi Laboratorium Virtual</h2><p>Cari materi, pilih kategori atau kelas, kemudian buka laboratorium virtual yang ingin dieksplorasi.</p></div>
   <div class="searchPanel"><input id="search" placeholder="🔎  Cari laboratorium atau materi..."><select id="category"><option value="">Semua Kategori</option></select><select id="grade"><option value="">Semua Kelas</option><option value="7">Kelas 7</option><option value="8">Kelas 8</option><option value="9">Kelas 9</option></select></div>
   <div class="cards" id="cards"><div class="empty" id="empty">Laboratorium tidak ditemukan.</div></div>
 </div></section>
 
 <section class="page" id="categoriesPage"><div class="shell">
-  <div class="pageHead"><span class="eyebrow">Jelajahi Berdasarkan Materi</span><h2>Kategori</h2><p>Pilih kategori untuk langsung melihat kumpulan Laboratorium Virtual pada materi tersebut.</p></div>
+  <div class="pageHead"><span class="eyebrow">Jelajahi Berdasarkan Materi</span><h2>Kategori Laboratorium Virtual</h2><p>Pilih kategori untuk langsung melihat kumpulan Laboratorium Virtual pada materi tersebut.</p></div>
   <div class="categoryGrid" id="categories"></div>
 </div></section>
 
 <section class="page" id="about"><div class="shell">
   <div class="pageHead"><span class="eyebrow">Tentang Portal</span><h2>Belajar melalui eksplorasi</h2><p>Laboratorium Virtual Matematika dikembangkan sebagai ruang pembelajaran interaktif yang membantu murid memahami konsep melalui pengalaman visual dan eksperimen.</p></div>
   <div class="aboutGrid">
-    <div class="profile"><div class="avatar"><img src="https://i.imgur.com/BJIwYjF.jpg" alt="Foto Rima Fitriyani, M.Pd., Gr." loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><h3>Rima Fitriyani, M.Pd., Gr.</h3><p>Pengembang Laboratorium Virtual Matematika</p><span class="badge">✦ Media Pembelajaran Interaktif</span></div>
+    <div class="profile"><div class="avatar"><img src="https://i.imgur.com/eokUfEO.jpg" alt="Foto Rima Fitriyani, M.Pd., Gr." loading="lazy" decoding="async" referrerpolicy="no-referrer"></div><h3>Rima Fitriyani, M.Pd., Gr.</h3><p>Pengembang Laboratorium Virtual Matematika</p><span class="badge">✦ Media Pembelajaran Interaktif</span></div>
     <div class="aboutText"><h3>Laboratorium Virtual Matematika</h3><p>Portal ini menjadi rumah bagi berbagai media eksplorasi matematika interaktif. Setiap laboratorium dirancang untuk membantu murid mencoba, mengamati pola, memvisualisasikan konsep, dan membangun pemahaman matematika secara lebih bermakna.</p><div class="miniFeatures"><div class="mini"><b>🔬 Eksploratif</b><small>Mendorong murid mencoba dan menemukan.</small></div><div class="mini"><b>📐 Visual</b><small>Konsep abstrak menjadi lebih mudah diamati.</small></div><div class="mini"><b>💡 Interaktif</b><small>Belajar melalui tindakan, bukan hanya membaca.</small></div></div></div>
   </div>
   <div class="adminAccess" id="adminAccess"><div><h4>🔐 Pengelola Laboratorium Virtual</h4><p>Area khusus pemilik untuk mengelola koleksi Laboratorium Virtual.</p></div><button class="btn btnSoft" id="loginBtn">Masuk Admin</button></div>
@@ -251,12 +584,12 @@ footer{font-size:11px}
 
 <div class="modal" id="loginModal"><form class="box small" id="loginForm"><h3>Login Admin</h3><p>Masukkan password pengelola Laboratorium Virtual Matematika.</p><div class="field"><label>Password Admin</label><input id="password" type="password" required autocomplete="current-password"></div><div class="error" id="loginError"></div><div class="modalFoot"><button type="button" class="adminBtn adminSoft" data-close="loginModal">Batal</button><button class="adminBtn adminPrimary">Masuk</button></div></form></div>
 
-<div class="modal" id="labModal"><form class="box" id="labForm"><h3 id="formTitle">Tambah Laboratoriumoratorium Virtual</h3><p>Laboratorium berstatus Aktif akan tampil pada portal murid.</p><input type="hidden" id="editId"><div class="formGrid">
+<div class="modal" id="labModal"><form class="box" id="labForm"><h3 id="formTitle">Tambah Laboratorium Virtual</h3><p>Laboratorium berstatus Aktif akan tampil pada portal murid.</p><input type="hidden" id="editId"><div class="formGrid">
 <div class="field full"><label>Judul Lab</label><input id="fTitle" required></div><div class="field"><label>Kategori</label><input id="fCategory" required></div><div class="field"><label>Kelas</label><select id="fGrade"><option>7</option><option>8</option><option>9</option></select></div><div class="field full"><label>Deskripsi</label><textarea id="fDesc" required></textarea></div><div class="field full"><label>Link Laboratorium Virtual</label><input id="fUrl" type="url" required placeholder="https://..."></div><div class="field"><label>Ikon / Emoji</label><input id="fIcon" placeholder="📐"></div><div class="field"><label>Rumus / Label</label><input id="fFormula" placeholder="a² + b² = c²"></div><div class="field"><label>Status</label><select id="fStatus"><option>Aktif</option><option>Nonaktif</option></select></div><div class="field"><label>Urutan</label><input id="fOrder" type="number" min="0" value="0"></div>
 </div><div class="error" id="formError"></div><div class="modalFoot"><button type="button" class="adminBtn adminSoft" data-close="labModal">Batal</button><button class="adminBtn adminPrimary">Simpan</button></div></form></div>
 
 <script>
-/* Tempel URL Web App GAS Code_003.gs di sini setelah deploy. */
+/* Backend GAS: Code_005.gs (URL deployment tetap sama). */
 const API_URL = "https://script.google.com/macros/s/AKfycbynig-aSgMweb2VAU0dOqZxogRUXLI6VEHGDyShOUAS0NXxdCIT5GJRMwxt4xKPHB4/exec";
 
 let labs=[], adminToken=sessionStorage.getItem("labAdminToken")||"";
@@ -284,16 +617,35 @@ async function api(action,payload={}){
 }
 async function loadPublic(){
  if(!API_URL){labs=demoLabs;renderAll();return}
- try{const r=await fetch(`${API_URL}?action=list&t=${Date.now()}`,{cache:"no-store"}),d=await r.json();if(!d.ok)throw new Error(d.message);labs=d.data;renderAll()}
- catch(e){labs=[];renderAll();$("empty").style.display="block";$("empty").textContent="Data laboratorium belum dapat dimuat. Periksa koneksi backend."}
+ try{
+   const r=await fetch(`${API_URL}?action=list&t=${Date.now()}`,{cache:"no-store"});
+   if(!r.ok) throw new Error(`HTTP ${r.status}`);
+   const d=await r.json();
+   if(!d.ok) throw new Error(d.message||"Backend mengembalikan kesalahan.");
+   labs=Array.isArray(d.data)?d.data:[];
+   renderAll();
+ }catch(e){
+   console.error("loadPublic:",e);
+   labs=[];
+   renderAll();
+   $("empty").style.display="block";
+   $("empty").textContent="Data laboratorium belum dapat dimuat: "+(e.message||"periksa koneksi backend.");
+ }
 }
 async function loadAdmin(){try{const d=await api("adminList");labs=d.data;setAdmin(true);renderAll()}catch(e){adminToken="";sessionStorage.removeItem("labAdminToken");setAdmin(false);await loadPublic()}}
 function setAdmin(on){document.body.classList.toggle("adminMode",on);$("adminAccess").style.display=on?"none":"flex";$("adminPanel").classList.toggle("show",on)}
-function renderAll(){renderCategories();renderCards();renderAdminTable();$("labCount").textContent=labs.filter(x=>x.status==="Aktif").length}
+function isActiveLab(l){return String(l?.status||"").trim().toLowerCase()==="aktif"}
+function renderAll(){
+  renderCategories();
+  renderCards();
+  renderAdminTable();
+  const counter=document.getElementById("labCount");
+  if(counter) counter.textContent=labs.filter(isActiveLab).length;
+}
 function renderCategories(){
  const holder=$("categories"),sel=$("category"),current=sel.value;holder.innerHTML="";sel.innerHTML='<option value="">Semua Kategori</option>';
- [...new Set(labs.filter(l=>l.status==="Aktif").map(l=>l.category).filter(Boolean))].sort().forEach(c=>{
-  const count=labs.filter(l=>l.category===c&&l.status==="Aktif").length;
+ [...new Set(labs.filter(l=>isActiveLab(l)).map(l=>l.category).filter(Boolean))].sort().forEach(c=>{
+  const count=labs.filter(l=>l.category===c&&isActiveLab(l)).length;
   sel.insertAdjacentHTML("beforeend",`<option>${esc(c)}</option>`);
   const el=document.createElement("div");el.className="cat";el.innerHTML=`<div class="ico">${categoryIcons[c]||"✦"}</div><b>${esc(c)}</b><small>${count} laboratorium virtual</small>`;
   el.onclick=()=>{goPage("labs");sel.value=c;renderCards()};holder.appendChild(el);
@@ -303,10 +655,10 @@ function renderCategories(){
 function renderCards(){
  const cards=$("cards");cards.querySelectorAll(".card").forEach(x=>x.remove());
  const admin=document.body.classList.contains("adminMode"),q=$("search").value.toLowerCase().trim(),cat=$("category").value,gr=$("grade").value;
- const data=labs.filter(l=>(admin||l.status==="Aktif")&&(!q||`${l.title} ${l.category} ${l.desc}`.toLowerCase().includes(q))&&(!cat||l.category===cat)&&(!gr||String(l.grade)===gr)).sort(sortLabs);
- $("empty").style.display=data.length?"none":"block";$("empty").textContent=labs.filter(l=>l.status==="Aktif").length?"Laboratorium tidak ditemukan untuk filter yang dipilih.":"Belum ada Laboratorium Virtual yang tersedia.";
+ const data=labs.filter(l=>(admin||isActiveLab(l))&&(!q||`${l.title} ${l.category} ${l.desc}`.toLowerCase().includes(q))&&(!cat||l.category===cat)&&(!gr||String(l.grade)===gr)).sort(sortLabs);
+ $("empty").style.display=data.length?"none":"block";$("empty").textContent=labs.filter(l=>isActiveLab(l)).length?"Laboratorium tidak ditemukan untuk filter yang dipilih.":"Belum ada Laboratorium Virtual yang tersedia.";
  data.forEach((l,i)=>{
-  const el=document.createElement("article");el.className="card";const inactive=l.status!=="Aktif"?'<span class="statusPill">Nonaktif</span>':"";
+  const el=document.createElement("article");el.className="card";const inactive=!isActiveLab(l)?'<span class="statusPill">Nonaktif</span>':"";
   el.innerHTML=`<div class="thumb c${i%6+1}"><span class="thumbMath">${esc(l.formula||"∑")}</span><span class="thumbIcon">${esc(l.icon||"✦")}</span></div><div class="cardBody"><div class="tags"><span class="tag">${esc(l.category)}</span><span class="tag">Kelas ${esc(l.grade)}</span>${inactive}</div><h3>${esc(l.title)}</h3><p>${esc(l.desc)}</p><div class="cardFoot"><a class="open" href="${safeUrl(l.url)}" ${l.url&&l.url!=="#"?'target="_blank" rel="noopener"':""}>Buka Laboratorium</a><span class="arrow">→</span></div><div class="cardAdmin"><button class="adminBtn adminSoft edit">Edit</button><button class="adminBtn adminDanger del">Hapus</button></div></div>`;
   el.querySelector(".open").onclick=e=>{if(!l.url||l.url==="#"){e.preventDefault();alert("Tautan laboratorium belum dipasang.")}};
   el.querySelector(".edit").onclick=()=>openLabForm(l);el.querySelector(".del").onclick=()=>deleteLab(l.id,l.title);cards.insertBefore(el,$("empty"));
@@ -314,7 +666,7 @@ function renderCards(){
 }
 function renderAdminTable(){
  const body=$("adminRows");body.innerHTML="";if(!document.body.classList.contains("adminMode"))return;
- labs.slice().sort(sortLabs).forEach(l=>{const tr=document.createElement("tr");tr.innerHTML=`<td><b>${esc(l.title)}</b></td><td>${esc(l.category)}</td><td>${esc(l.grade)}</td><td>${esc(l.status)}</td><td>${Number(l.order||0)}</td><td><div class="adminActions"><button class="adminBtn adminSoft edit">Edit</button><button class="adminBtn adminDanger del">Hapus</button></div></td>`;tr.querySelector(".edit").onclick=()=>openLabForm(l);tr.querySelector(".del").onclick=()=>deleteLab(l.id,l.title);body.appendChild(tr)})
+ labs.slice().sort(sortLabs).forEach(l=>{const tr=document.createElement("tr");tr.innerHTML=`<td data-label="Judul"><b>${esc(l.title)}</b></td><td data-label="Kategori">${esc(l.category)}</td><td data-label="Kelas">${esc(l.grade)}</td><td data-label="Status">${esc(l.status)}</td><td data-label="Urutan">${Number(l.order||0)}</td><td data-label="Aksi"><div class="adminActions"><button class="adminBtn adminSoft edit">Edit</button><button class="adminBtn adminDanger del">Hapus</button></div></td>`;tr.querySelector(".edit").onclick=()=>openLabForm(l);tr.querySelector(".del").onclick=()=>deleteLab(l.id,l.title);body.appendChild(tr)})
 }
 function sortLabs(a,b){return (+a.order||0)-(+b.order||0)||String(a.title).localeCompare(String(b.title))}
 function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
@@ -322,10 +674,27 @@ function safeUrl(u){try{if(u==="#")return "#";const x=new URL(u);return x.protoc
 function show(id){$(id).classList.add("show")}function hide(id){$(id).classList.remove("show")}
 document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>hide(b.dataset.close));document.querySelectorAll(".modal").forEach(m=>m.onclick=e=>{if(e.target===m)hide(m.id)});
 $("loginBtn").onclick=()=>{$("password").value="";$("loginError").textContent="";show("loginModal");setTimeout(()=>$("password").focus(),50)};
-$("loginForm").onsubmit=async e=>{e.preventDefault();try{if(!API_URL)throw new Error("Backend GAS belum dihubungkan.");const r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"login",password:$("password").value})}),d=await r.json();if(!d.ok)throw new Error(d.message||"Password salah.");adminToken=d.token;sessionStorage.setItem("labAdminToken",adminToken);hide("loginModal");await loadAdmin()}catch(err){$("loginError").textContent=err.message}};
+$("loginForm").onsubmit=async e=>{
+ e.preventDefault();
+ $("loginError").textContent="Memeriksa...";
+ try{
+   if(!API_URL)throw new Error("Backend GAS belum dihubungkan.");
+   const r=await fetch(API_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"login",password:$("password").value})});
+   if(!r.ok)throw new Error(`HTTP ${r.status}`);
+   const d=await r.json();
+   if(!d.ok)throw new Error(d.message||"Password salah.");
+   adminToken=d.token;
+   sessionStorage.setItem("labAdminToken",adminToken);
+   hide("loginModal");
+   await loadAdmin();
+ }catch(err){
+   console.error("loginAdmin:",err);
+   $("loginError").textContent=err.message||"Login Admin gagal.";
+ }
+};
 $("logoutBtn").onclick=async()=>{try{if(API_URL&&adminToken)await api("logout")}catch{}adminToken="";sessionStorage.removeItem("labAdminToken");setAdmin(false);await loadPublic()};
 $("addBtn").onclick=()=>openLabForm();
-function openLabForm(l=null){$("labForm").reset();$("editId").value=l?.id||"";$("fTitle").value=l?.title||"";$("fCategory").value=l?.category||"";$("fGrade").value=l?.grade||"7";$("fDesc").value=l?.desc||"";$("fUrl").value=l?.url||"";$("fIcon").value=l?.icon||"";$("fFormula").value=l?.formula||"";$("fStatus").value=l?.status||"Aktif";$("fOrder").value=l?.order||0;$("formTitle").textContent=l?"Edit Laboratoriumoratorium Virtual":"Tambah Laboratoriumoratorium Virtual";$("formError").textContent="";show("labModal")}
+function openLabForm(l=null){$("labForm").reset();$("editId").value=l?.id||"";$("fTitle").value=l?.title||"";$("fCategory").value=l?.category||"";$("fGrade").value=l?.grade||"7";$("fDesc").value=l?.desc||"";$("fUrl").value=l?.url||"";$("fIcon").value=l?.icon||"";$("fFormula").value=l?.formula||"";$("fStatus").value=l?.status||"Aktif";$("fOrder").value=l?.order||0;$("formTitle").textContent=l?"Edit Laboratorium Virtual":"Tambah Laboratorium Virtual";$("formError").textContent="";show("labModal")}
 $("labForm").onsubmit=async e=>{e.preventDefault();const id=$("editId").value,lab={id,title:$("fTitle").value.trim(),category:$("fCategory").value.trim(),grade:$("fGrade").value,desc:$("fDesc").value.trim(),url:$("fUrl").value.trim(),icon:$("fIcon").value.trim(),formula:$("fFormula").value.trim(),status:$("fStatus").value,order:Number($("fOrder").value||0)};try{await api(id?"update":"create",{lab});hide("labModal");await loadAdmin()}catch(err){$("formError").textContent=err.message}};
 async function deleteLab(id,title){if(!confirm(`Hapus "${title}"?`))return;try{await api("delete",{id});await loadAdmin()}catch(err){alert(err.message)}}
 [$("search"),$("category"),$("grade")].forEach(el=>el.addEventListener(el===$("search")?"input":"change",renderCards));
